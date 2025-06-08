@@ -1,7 +1,7 @@
 <template>
   <div id="simple-cv-dev-oz">
     <section id="presentation" class="container">
-      <h1 class="ubuntu-regular">OZ DUVERGER</h1>
+      <h1>OZ DUVERGER</h1>
       <h2>DEVELOPER</h2>
       <div class="description">
         Web, software, hardware and video game developer more experienced in web development. In short, a human who likes to do stuff. Living in paris.
@@ -11,8 +11,8 @@
       <h2>CONTACT</h2>
       <div class="buttons">
         <ClickableBox title="Linkedin" link="https://www.linkedin.com/in/oz-duverger-26116b1a0/"/>
-        <ClickableBox title="Github" link="https://github.com/OzDuverger"/>
         <ClickableBox title="ozduverger@gmail.com" link="mailto:ozduverger@gmail.com"/>
+        <ClickableBox title="Github" link="https://github.com/OzDuverger"/>
       </div>
     </section>
     <section id="activities" class="container">
@@ -29,18 +29,18 @@
       <div class="experience">
         <div class="date-boxe">2023</div><span>></span><div class="date-boxe">2024</div>
       </div>
-      <h3>Fullstack Developer <span class="link">at</span> Dipli <span>{ alternation }</span></h3>
+      <h3>Fullstack Developer <span class="link">at</span> Dipli <span class="link">{ alternation }</span></h3>
       <div class="experience">
         <div class="date-boxe">2021</div><span>></span><div class="date-boxe">2023</div>
       </div>
-      <h3>Fullstack Developer <span class="link">at</span> Atexo <span>{ internship }</span></h3>
+      <h3>Fullstack Developer <span class="link">at</span> Atexo <span class="link">{ internship }</span></h3>
       <div class="experience">
         <div class="date-boxe">2020</div>
       </div>
     </section>
     <section id="languages" class="container">
       <h2>LANGUAGES</h2>
-      <h3 @click="isWebShown = !isWebShown">Web</h3>
+      <h3 @click="isWebShown = !isWebShown" @mouseenter="hoverWeb()" id="languages-web">Web</h3>
       <ul :class="isWebShown? 'ul-visible' : 'ul-invisible'">
         <li class="percent--95"><span>Html</span></li>
         <li class="percent--95"><span>Css</span></li>
@@ -62,18 +62,18 @@
         <li class="percent--90"><span>Symfony</span></li>
         <li class="percent--60"><span>Prado</span></li>
       </ul>
-      <h3 @click="isMobileShown = !isMobileShown">Mobile</h3>
+      <h3 @click="isMobileShown = !isMobileShown" @mouseenter="hoverMobile()" id="languages-mobile">Mobile</h3>
       <ul :class="isMobileShown? 'ul-visible' : 'ul-invisible'">
         <li class="percent--50"><span>Swift</span></li>
       </ul>
-      <h3 @click="isBasicShown = !isBasicShown">Basic</h3>
+      <h3 @click="isBasicShown = !isBasicShown" @mouseenter="hoverBasic()" id="languages-basic">Basic</h3>
       <ul :class="isBasicShown? 'ul-visible' : 'ul-invisible'">
         <li class="percent--95"><span>C</span></li>
         <li class="percent--80"><span>C#</span></li>
         <li class="percent--60"><span>Python</span></li>
         <li class="percent--50"><span>Assembleur</span></li>
       </ul>
-      <h3 @click="isOtherShown = !isOtherShown">Other</h3>
+      <h3 @click="isOtherShown = !isOtherShown" @mouseenter="hoverOther()" id="languages-other">Other</h3>
       <ul :class="isOtherShown? 'ul-visible' : 'ul-invisible'">
           <li class="percent--70"><span>Unity</span></li>
           <li class="percent--45"><span>Unreal Engine</span></li>
@@ -100,11 +100,140 @@
 </template>
 
 <script setup>
+import gsap from "gsap"
+import { SplitText } from "gsap/SplitText"
 
+// Languages scrolldown menu
 let isWebShown = ref(false)
 let isMobileShown = ref(false)
 let isBasicShown = ref(false)
 let isOtherShown = ref(false)
+
+onMounted(() => {
+  gsap.registerPlugin(SplitText)
+
+  animateTitle()
+})
+
+const animateTitle = () => {
+
+  let splitTitle = SplitText.create("h1", {
+    type: "chars"
+  })
+  const charsTitle = splitTitle.chars
+  const staggerTime = 0.08;
+  const totalStaggerTime = staggerTime * charsTitle.length;
+  const timelineTitle = new gsap.timeline({ repeat: -1, repeatDelay: 3 })
+
+  timelineTitle.to(charsTitle, {
+    yPercent: -35,
+    duration: 0.6,
+    ease: "power1.inOut",
+    stagger: staggerTime
+  })
+  .to(charsTitle, {
+    yPercent: 0,
+    duration: 0.6,
+    ease: "power1.inOut",
+    stagger: staggerTime
+  }, `-=${ totalStaggerTime }`)
+}
+
+const hoverWeb = () => {
+
+  let split = SplitText.create("#languages-web", {
+    type: "chars"
+  })
+  const chars = split.chars
+  const staggerTime = 0.08;
+  const totalStaggerTime = staggerTime * chars.length;
+  const timelineTitle = new gsap.timeline()
+
+  timelineTitle.to(chars, {
+    yPercent: -35,
+    duration: 0.35,
+    ease: "power1.inOut",
+    stagger: staggerTime
+  })
+  .to(chars, {
+    yPercent: 0,
+    duration: 0.35,
+    ease: "power1.inOut",
+    stagger: staggerTime
+  }, `-=${ totalStaggerTime }`)
+}
+
+const hoverMobile = () => {
+
+  let split = SplitText.create("#languages-mobile", {
+    type: "chars"
+  })
+  const chars = split.chars
+  const staggerTime = 0.08;
+  const totalStaggerTime = staggerTime * chars.length;
+  const timelineTitle = new gsap.timeline()
+
+  timelineTitle.to(chars, {
+    yPercent: -35,
+    duration: 0.35,
+    ease: "power1.inOut",
+    stagger: staggerTime
+  })
+  .to(chars, {
+    yPercent: 0,
+    duration: 0.35,
+    ease: "power1.inOut",
+    stagger: staggerTime
+  }, `-=${ totalStaggerTime }`)
+}
+
+const hoverBasic = () => {
+
+  let split = SplitText.create("#languages-basic", {
+    type: "chars"
+  })
+  const chars = split.chars
+  const staggerTime = 0.08;
+  const totalStaggerTime = staggerTime * chars.length;
+  const timelineTitle = new gsap.timeline()
+
+  timelineTitle.to(chars, {
+    yPercent: -35,
+    duration: 0.35,
+    ease: "power1.inOut",
+    stagger: staggerTime
+  })
+  .to(chars, {
+    yPercent: 0,
+    duration: 0.35,
+    ease: "power1.inOut",
+    stagger: staggerTime
+  }, `-=${ totalStaggerTime }`)
+}
+
+const hoverOther = () => {
+
+  let split = SplitText.create("#languages-other", {
+    type: "chars"
+  })
+  const chars = split.chars
+  const staggerTime = 0.08;
+  const totalStaggerTime = staggerTime * chars.length;
+  const timelineTitle = new gsap.timeline()
+
+  timelineTitle.to(chars, {
+    yPercent: -35,
+    duration: 0.35,
+    ease: "power1.inOut",
+    stagger: staggerTime
+  })
+  .to(chars, {
+    yPercent: 0,
+    duration: 0.35,
+    ease: "power1.inOut",
+    stagger: staggerTime
+  }, `-=${ totalStaggerTime }`)
+}
 
 </script>
 
@@ -115,49 +244,44 @@ let isOtherShown = ref(false)
 
   width: 100%;
 
+  h2 {
+    margin: 2rem auto;
+    padding: 0;
+    font-size: 2rem;
+  }
+
   h3 {
     z-index: 42;
+    margin: 1rem auto;
+    padding: 0;
+    font-size: 1.5rem;
   }
 
   .buttons {
     
     width: 100%;
+    margin: 1rem auto;
     @include flex($justify: space-between);
   }
 
-  #presentation, #contact, #languages, #activities, #projects {
+  #presentation, #contact, #activities, #languages, #projects {
 
     width: 100%;
+    margin: 3rem auto;
     @include flex($direction: column);
   }
 
-  #activities {
+  #presentation {
 
-    .experience {
-      
-      width: 100%;
-      @include flex();
-
-      .date-boxe {
-
-        background-color: $white;
-        border-radius: 5px;
-        font-weight: 600;
-        color: $orange;
-        padding: 5px;
-        margin: 5px;
-      }
-
-      span {
-
-        font-weight: 600;
-        font-size: 1.5rem;
-      }
+    h1 {
+      font-size: 5rem;
+      margin: 0;
+      padding: 0;
     }
-    
-    .link {
 
-      color: rgba($orange, .7);
+    .description {
+      text-align: center;
+      margin: auto 7rem;
     }
   }
 
@@ -196,6 +320,37 @@ let isOtherShown = ref(false)
       margin: auto;
       opacity: 1;
       transition: all 1.25s ease-out;
+    }
+  }
+
+  #activities {
+
+    .experience {
+      
+      width: 100%;
+      margin-bottom: 1.5rem;
+      @include flex();
+
+      .date-boxe {
+
+        background-color: $white;
+        border-radius: 5px;
+        font-weight: 600;
+        color: $orange;
+        padding: 5px;
+        margin: 5px;
+      }
+
+      span {
+
+        font-weight: 600;
+        font-size: 1.5rem;
+      }
+    }
+    
+    .link {
+
+      color: rgba($orange, .7);
     }
   }
 }
