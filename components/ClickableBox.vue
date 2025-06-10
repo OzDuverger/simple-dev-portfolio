@@ -22,6 +22,7 @@ const props = defineProps({
 
 .clickable-box {
     border: 2px solid $white;
+    margin: 1rem auto;
     border-radius: 3rem;
     font-weight: 600;
     overflow: hidden;

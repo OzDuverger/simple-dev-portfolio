@@ -354,4 +354,13 @@ const hoverOther = () => {
     }
   }
 }
+
+@media screen and (max-width: 450px) {
+  #simple-cv-dev-oz {
+    .buttons {
+    
+      @include flex($direction: column, $justify: space-between);
+    }
+  }
+}
 </style>
