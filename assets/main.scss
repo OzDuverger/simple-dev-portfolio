@@ -7,7 +7,6 @@ html {
     font-family: "Ubuntu", sans-serif;
     font-weight: 400;
     font-style: normal;
-    // TO-DO : rebudouiller les couleurs
     background: linear-gradient(to right bottom,#FF7A00,rgba(252, 208, 146, .75) 70%);
 
     * {
@@ -18,7 +17,6 @@ html {
         min-height: 100vh;
         overflow-x: hidden;
         margin: 0;
-        // TO-DO : rebudouiller les couleurs
         background: linear-gradient(to left bottom,#FF7A00,rgba(252,207,146,.75) 70%);
         @include flex(space-between, unset, column);
 

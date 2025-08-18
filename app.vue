@@ -38,6 +38,17 @@
         <div class="date-boxe">2020</div>
       </div>
     </section>
+    <section id="formations" class="container">
+      <h2>FORMATIONS</h2>
+      <h3>ThreeJs Journey <span class="link">of</span> Bruno Simon</h3>
+      <div class="experience">
+        <div class="date-boxe">2025</div>
+      </div>
+      <h3>42 Paris</h3>
+      <div class="experience">
+        <div class="date-boxe">2018</div><span>></span><div class="date-boxe">2023</div>
+      </div>
+    </section>
     <section id="languages" class="container">
       <h2>LANGUAGES</h2>
       <h3 @click="isWebShown = !isWebShown" @mouseenter="hoverWeb()" id="languages-web">Web</h3>
@@ -264,7 +275,7 @@ const hoverOther = () => {
     @include flex($justify: space-between);
   }
 
-  #presentation, #contact, #activities, #languages, #projects {
+  #presentation, #contact, #activities, #formations, #languages, #projects {
 
     width: 100%;
     margin: 3rem auto;
@@ -323,7 +334,7 @@ const hoverOther = () => {
     }
   }
 
-  #activities {
+  #activities, #formations {
 
     .experience {
       
