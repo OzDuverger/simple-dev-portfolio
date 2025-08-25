@@ -108,6 +108,10 @@
         <ClickableBox title="TrapFairies recovery" link="https://github.com/OzDuverger/Unity_TrapFairies" />
       </div>
     </section>
+    <section id="contact" class="container">
+      <h2>CONTACT</h2>
+      <Contact />
+    </section>
   </div>
 </template>
 
@@ -276,7 +280,7 @@ const hoverOther = () => {
     @include flex($justify: space-between);
   }
 
-  #presentation, #contact, #activities, #formations, #languages, #projects {
+  #presentation, #contact, #activities, #formations, #languages, #projects, #contact {
 
     width: 100%;
     margin: 3rem auto;

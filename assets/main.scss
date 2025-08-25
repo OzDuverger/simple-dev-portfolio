@@ -7,6 +7,7 @@ html {
     font-family: "Ubuntu", sans-serif;
     font-weight: 400;
     font-style: normal;
+    overflow-x: hidden;
     background: linear-gradient(to right bottom,#FF7A00,rgba(252, 208, 146, .75) 70%);
 
     * {
@@ -33,7 +34,7 @@ html {
             border: none;
         }
     
-        input {
+        input, textarea {
             outline: none;
             border: none;
             font-family: 'Geomanist', sans-serif;
