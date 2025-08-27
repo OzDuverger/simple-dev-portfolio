@@ -110,6 +110,7 @@
     </section>
     <section id="contact" class="container">
       <h2>CONTACT</h2>
+      <a class="link" href="/cv_oz_duverger-developpeur.pdf" download="cv_oz_duverger-developpeur.pdf">Download my CV !</a>
       <Contact />
     </section>
   </div>
