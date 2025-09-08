@@ -99,6 +99,8 @@
         <ClickableBox title="Generate Your Galaxy" link="https://generate-your-galaxy.web.app/" />
         <ClickableBox title="Dipli Website" link="https://www.dipli.com/fr" />
         <ClickableBox title="Atexo Website" link="https://www.atexo.com/" />
+      </div>
+      <div class="buttons">
         <ClickableBox title="Oz Rest Room" link="https://oz-duverger.netlify.app/" />
       </div>
       <h3>Video Game</h3>
